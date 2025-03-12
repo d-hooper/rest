@@ -6,6 +6,10 @@ class LocationsService {
     return locations
   }
 
+  async getMissionsByLocation(locationId) {
+    const missions = await dbContext.Missions.find({ locationId: locationId }).populate('location').populate('rat', '-name -picture')
+    return missions
+  }
 }
 
 export const locationsService = new LocationsService()
