@@ -8,6 +8,7 @@ export class MissionsController extends BaseController {
     this.router
       .get('', this.getAllMissions)
       .post('', this.addMission)
+      .put('/:missionId', this.updateMission)
 
   }
 
@@ -37,6 +38,23 @@ export class MissionsController extends BaseController {
     try {
       const missionData = request.body
       const mission = await missionsService.addMission(missionData)
+      response.send(mission)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  /**
+  * Creates a new value from request body and returns the value
+  * @param {import("express").Request} request
+  * @param {import("express").Response} response
+  * @param {import("express").NextFunction} next
+  */
+  async updateMission(request, response, next) {
+    try {
+      const missionId = request.params.missionId
+      const missionData = request.body
+      const mission = await missionsService.updateMission(missionId, missionData)
       response.send(mission)
     } catch (error) {
       next(error)
