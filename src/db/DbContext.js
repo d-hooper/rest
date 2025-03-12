@@ -7,11 +7,11 @@ import { LocationSchema } from '../models/Location.js';
 class DbContext {
   Account = mongoose.model('Account', AccountSchema);
 
-  Rat = mongoose.model('Rat', RatSchema);
+  Rats = mongoose.model('Rat', RatSchema);
 
-  Mission = mongoose.model('Mission', MissionSchema);
+  Missions = mongoose.model('Mission', MissionSchema);
 
-  Location = mongoose.model('Location', LocationSchema);
+  Locations = mongoose.model('Location', LocationSchema);
 }
 
 export const dbContext = new DbContext()

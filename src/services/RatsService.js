@@ -2,7 +2,7 @@ import { dbContext } from "../db/DbContext.js"
 
 class RatsService {
   async getAllRats() {
-    const rats = dbContext.Rat.find()
+    const rats = dbContext.Rats.find()
     return rats
   }
 
